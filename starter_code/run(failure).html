@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<script src="exercise.js"></script>
+<script>
+var timer = function() {
+	// get the current date & time
+	var time = new Date();
+	console.log(time);
+	// show roman time, using 6 columns
+	setRoman(time);
+	// show binary time
+	setBinary(time);
+	// update every 1 second
+	setTimeout(timer, 1000);
+};
+var setRoman = function(time){
+	// set roman time
+	exercise.roman = function(time){
+
+    var currentDate = new Date();
+        console.log(currentDate);
+        var hours = currentDate.getHours();
+        var minutes = currentDate.getMinutes();
+        var seconds = currentDate.getSeconds();
+        document.getElementById("clock").innerHTML = hours + ":" + minutes + ":" + seconds;
+        console.log('h:m:s = ' + hours + ':' + minutes + ':' + seconds);
+    
+        outputHours = [];
+        outputMinutes = [];
+        outputSeconds = [];
+        var stringHours=hours.toString();
+        var stringMinutes=minutes.toString();
+        var stringSeconds=seconds.toString();
+    
+        for(i=0, lenHours=stringHours.length; i<lenHours; i+=1){
+            outputHours.push(+stringHours.charAt(i));
+        }
+    
+        for(i=0, lenMinutes=stringMinutes.length; i<lenMinutes; i+=1){
+            outputMinutes.push(+stringMinutes.charAt(i));
+        }
+    
+        for(i=0, lenSeconds=stringSeconds.length; i<lenSeconds; i+=1){
+            outputSeconds.push(+stringSeconds.charAt(i));
+        }
+    
+        console.log(outputHours);
+        console.log(outputMinutes);
+        console.log(outputSeconds);
+        console.log(outputSeconds[0]);
+    
+     
+        if (hours< 10){
+            outputHours[1]=outputHours[0];
+            outputHours[0]=0;
+        
+    
+        if (minutes< 10)
+            outputMinutes[1]=outputMinutes[0];
+            outputMinutes[0]=0;
+        
+    
+        if (seconds< 10)
+            outputSeconds[1]=outputSeconds[0];
+            outputSeconds[0]=0;
+        }
+    
+        setClock('H1',outputHours[0]);
+        setClock('H2',outputHours[1]);
+        setClock('M1',outputMinutes[0]);
+        setClock('M2',outputMinutes[1]);
+        setClock('S1',outputSeconds[0]);
+        setClock('S2',outputSeconds[1]);
+    
+    
+        setTimeout(timer, 1000);
+};
+var setBinary = function(time){
+	// set roman time
+	console.log("col = " + col + " num = " + num);
+        if (num >=8){
+            if (document.getElementById(col + '_8') !== null){
+                document.getElementById(col + '_8').style.background='green';
+            num -= 8;
+            }
+        }
+        else{3
+            if (document.getElementById(col + '_8') !== null){
+                document.getElementById(col + '_8').style.background='silver';
+        }
+        }
+        if(num >=4){
+            if (document.getElementById(col + '_4') !== null){
+                document.getElementById(col + '_4').style.background='green';
+                num -= 4;
+            }
+        }
+        else{
+            if (document.getElementById(col + '_4') !== null){
+                document.getElementById(col + '_4').style.background='silver';
+            }
+        }
+    
+        if(num >=2){
+            if (document.getElementById(col + '_2') !== null){
+                document.getElementById(col + '_2').style.background='green';
+                num -= 2;
+            }
+        }
+        else{
+            if (document.getElementById(col + '_2') !== null){
+                document.getElementById(col + '_2').style.background='silver';
+            }
+        }
+    
+        if(num >=1){
+            if (document.getElementById(col + '_1') !== null){
+                document.getElementById(col + '_1').style.background='green';
+                num -= 1;
+            }
+        }
+        else{
+            if (document.getElementById(col + '_4') !== null){
+                document.getElementById(col + '_1').style.background='silver';
+            }
+        }
+};
+// start timer when page is loaded
+
+window.onload = timer
+
+</script>
+
+
+<style> div {position:absolute; width: 100px; height: 100px; background: silver; text-align: center;vertical-align: middle; line-height: 100px;font-size: 5em;} </style>
+
+	
+    
+    </script>
+    
+    <style>
+    
+        .box {
+            position:absolute;
+            width: 100px;
+            height: 100px;
+            background: silver;
+            text-align: center;
+            vertical-align: middle;
+            line-height: 100px;
+            font-size: 5em;
+        }
+    
+    </style>
+    
+    <div id="S2_8" class='box' style="left:600px; top:100px;"></div>
+    <div id="S2_4" class='box' style="left:600px; top:210px;"></div>
+    <div id="S2_2" class='box' style="left:600px; top:320px;"></div>
+    <div id="S2_1" class='box' style="left:600px; top:430px;"></div>
+    <div id="S1_4" class='box' style="left:490px; top:210px;"></div>
+    <div id="S1_2" class='box' style="left:490px; top:320px;"></div>
+    <div id="S1_1" class='box' style="left:490px; top:430px;"></div>
+    
+    <div id="M2_8" class='box' style="left:380px; top:100px;"></div>
+    <div id="M2_4" class='box' style="left:380px; top:210px;"></div>
+    <div id="M2_2" class='box' style="left:380px; top:320px;"></div>
+    <div id="M2_1" class='box' style="left:380px; top:430px;"></div>
+    <div id="M1_4" class='box' style="left:270px; top:210px;"></div>
+    <div id="M1_2" class='box' style="left:270px; top:320px;"></div>
+    <div id="M1_1" class='box' style="left:270px; top:430px;"></div>
+    
+    <div id="H2_8" class='box' style="left:160px; top:100px;"></div>
+    <div id="H2_4" class='box' style="left:160px; top:210px;"></div>
+    <div id="H2_2" class='box' style="left:160px; top:320px;"></div>
+    <div id="H2_1" class='box' style="left:160px; top:430px;"></div>
+    <div id="H1_2" class='box' style="left:50px; top:320px;"></div>
+    <div id="H1_1" class='box' style="left:50px; top:430px;"></div>
+    
+    <div id="clock"></div>
+    
+    </html>
+
+};
+
+
+</html>
